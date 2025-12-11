@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 
 function Card({ search }) {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate(); 
@@ -12,8 +13,8 @@ function Card({ search }) {
         setLoading(true);
 
         const url = search
-          ? `http://localhost:6969/event/search?q=${encodeURIComponent(search)}`
-          : "http://localhost:6969/event";
+          ? `${API_URL}/event/search?q=${encodeURIComponent(search)}`
+          : `${API_URL}/event`;
 
         const res = await fetch(url);
         const data = await res.json();

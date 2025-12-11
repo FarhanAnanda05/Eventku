@@ -9,6 +9,7 @@ import logo from "../assets/general/logo.png"
 
 
 export default function Login() {
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +29,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:6969/user/login", {
+      const response = await fetch(`${API_URL}/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

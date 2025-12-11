@@ -5,6 +5,7 @@ import phone from "../assets/general/phone_1.png";
 import envelope from "../assets/general/envelope2.png";
 
 function Kontak() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState({
     nama: "",
     email: "",
@@ -24,7 +25,7 @@ function Kontak() {
     setStatus("loading");
 
     try {
-      const res = await fetch("http://localhost:6969/contact", {
+      const res = await fetch(`${API_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

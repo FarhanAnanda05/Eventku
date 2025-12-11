@@ -2,13 +2,14 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Checkout() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const { id } = useParams(); 
   const [event, setEvent] = useState(null);
 
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await fetch(`http://localhost:6969/event/${id}`);
+        const res = await fetch(`${API_URL}/event/${id}`);
         const data = await res.json();
 
         if (res.ok) {

@@ -1,6 +1,7 @@
 import banner from "../assets/Beranda/hero-banner.jpg"
 import Card from "../components/Card"
 function Beranda() {
+    
     return(
         <>
             <div className="px-10 py-5 bg-primary">

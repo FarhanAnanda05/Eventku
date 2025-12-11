@@ -3,6 +3,8 @@ import loginAuth from "../store/loginAuth";
 import { Link } from "react-router-dom";
 
 function Admin() {
+  const API_URL = import.meta.env.VITE_API_URL;
+  
   const { logout } = loginAuth();
 
 
@@ -34,7 +36,7 @@ function Admin() {
     }
 
     try {
-      const res = await fetch("http://localhost:6969/event", {
+      const res = await fetch(`${API_URL}/event`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(eventData),
@@ -71,7 +73,7 @@ function Admin() {
     }
 
     try {
-      const res = await fetch(`http://localhost:6969/event/${deleteJudul}`, {
+      const res = await fetch(`${API_URL}/event/${deleteJudul}`, {
         method: "DELETE",
       });
 

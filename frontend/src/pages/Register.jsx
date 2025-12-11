@@ -8,6 +8,7 @@ import image3 from '../assets/login/password.svg'
 import logo from "../assets/general/logo.png"
 
 export default function Login() {
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const [nama, setNama] = useState("");
     const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ export default function Login() {
     const handleRegister = async (e) => {
     e.preventDefault();
     try {
-        const res = await fetch("http://localhost:6969/user/register", {
+        const res = await fetch(`${API_URL}/user/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nama, email, password, confirmPassword }),

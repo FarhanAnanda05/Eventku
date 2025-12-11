@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import loginAuth from "../store/loginAuth";
 
 function User() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const { logout } = loginAuth();
   const [user, setUser] = useState(null);
 
@@ -16,7 +17,7 @@ function User() {
       }
 
       try {
-        const res = await fetch("http://localhost:6969/user/profile", {
+        const res = await fetch(`${API_URL}/user/profile`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
