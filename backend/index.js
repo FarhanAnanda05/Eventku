@@ -11,7 +11,14 @@ const app = express();
 const PORT = process.env.PORT || 6969;
 
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",       
+    "https://eventku.vercel.app"   
+  ],
+  credentials: true
+}));
 
 app.use("/contact", contactRoutes);
 app.use("/user", userRoutes);
