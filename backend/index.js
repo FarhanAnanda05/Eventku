@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:5173",       
-    "https://eventku.vercel.app"   
+    "https://eventku-delta.vercel.app/"   
   ],
   credentials: true
 }));
