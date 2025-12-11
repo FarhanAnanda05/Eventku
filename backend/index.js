@@ -8,17 +8,20 @@ import eventRoutes from "./routes/Event.js"
 dotenv.config()
 
 const app = express();
-const PORT = process.env.PORT || 6969;
-
-app.use(express.json());
 
 app.use(cors({
   origin: [
     "http://localhost:5173",       
-    "https://eventku-delta.vercel.app/"   
+    "https://eventku-delta.vercel.app"   
   ],
   credentials: true
 }));
+
+
+const PORT = process.env.PORT || 6969;
+
+app.use(express.json());
+
 
 app.use("/contact", contactRoutes);
 app.use("/user", userRoutes);
